@@ -31,8 +31,13 @@
 #define __DRV2605_H__
 
 #include <Arduino.h>
-#include <Wire.h>
 
+#define DRV2605_SUPPORT_WIRE_I2C 1
+#define DRV2605_SUPPORT_SOFT_I2C 0
+//#define SDA_PORT PORTD
+//#define SDA_PIN 3
+//#define SCL_PORT PORTD
+//#define SCL_PIN 2
 
 #define STATUS_Reg          0x00
 #define MODE_Reg            0x01
@@ -80,28 +85,16 @@
 class DRV2605
 {
 public: 
-  void init(void);
-  char drv2605Read(unsigned char address);
-  int drv2605ReadInt(unsigned char address);
-  void writeRegister(int deviceAddress, byte address, byte val);
-  int readRegister(int deviceAddress, byte address);
-  void drv2605ReadID(void);
-  void drv2605Write(unsigned char address, byte val);
-  void drv2605_AutoCal(void);
-  void drv2605_Play_Waveform(unsigned char effect);
+	int init(bool bSoftI2C, bool bVerbose);
+	int drv2605Read(unsigned char ucRegAddress, char* pcValue);
+	int drv2605ReadInt(unsigned char ucRegAddress, int* piValue);
+	int drv2605Write(unsigned char ucRegAddress, char cValue);
+	int drv2605_AutoCal(void);
+	int drv2605_Play_Waveform(unsigned char ucEffect);
 
 private:
-  int ac1;
-  int ac2;
-  int ac3;
-  unsigned int ac4;
-  unsigned int ac5;
-  unsigned int ac6;
-  int b1;
-  int b2;
-  int mb;
-  int mc;
-  int md;
+	bool bSoftI2C; /* Use software I2C on digital pins or Wire I2C on designated I2C pins */
+	bool bVerbose; /* Write diagnostic information to the serial port */
 };
 
-#endif
+#endif /*  __DRV2605_H__ */

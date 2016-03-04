@@ -27,7 +27,13 @@
  * THE SOFTWARE.
  */
 
-#include <Wire.h>
+/* Since the Haptic Motor driver DRV2605 does not allow change of the I2C slave address,
+ * it is not possible to use multiple drivers on the same I2C bus. An alternative
+ * solution is to implement a software I2C bus on two other digital I/O pins (SCL and SDA)
+ * in conjunction with the default I2C bus.
+ * Edit drv2605.h to enable software I2C bus (requires SoftI2CMaster library) and choose
+ * two digital pins for the SCL and SDA signals of the second I2C bus.
+ */
 #include <drv2605.h>
 
 DRV2605 haptic;
@@ -35,8 +41,9 @@ DRV2605 haptic;
 void setup()
 {
     Serial.begin(9600);
-    haptic.init();
-    haptic.drv2605_AutoCal();
+    /* Software I2C = true, Verbose = true */
+    if (haptic.init(true, true) != 0) Serial.println("init failed!");
+    if (haptic.drv2605_AutoCal() != 0) Serial.println("auto calibration failed!");
     delay(2000);
 }
 
