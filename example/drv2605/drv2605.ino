@@ -41,8 +41,8 @@ DRV2605 haptic;
 void setup()
 {
     Serial.begin(9600);
-    /* Software I2C = true, Verbose = true */
-    if (haptic.init(true, true) != 0) Serial.println("init failed!");
+    /* Software I2C = false, Verbose = true */
+    if (haptic.init(false, true) != 0) Serial.println("init failed!");
     if (haptic.drv2605_AutoCal() != 0) Serial.println("auto calibration failed!");
     delay(2000);
 }
