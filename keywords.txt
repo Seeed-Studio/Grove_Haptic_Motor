@@ -1,0 +1,25 @@
+  
+#######################################
+# Syntax Coloring Map For 
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+init	KEYWORD2
+drv2605Read	KEYWORD2
+drv2605ReadInt	KEYWORD2
+drv2605Write	KEYWORD2
+drv2605_AutoCal	KEYWORD2
+drv2605_Play_Waveform	KEYWORD2
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
