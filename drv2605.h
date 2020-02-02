@@ -1,31 +1,31 @@
 /*
- * drv2605.h
- * A library for Grove-Haptic Motor 1.0
- *
- * Copyright (c) 2015 seeed technology inc.
- * Website    : http://www.seeedstudio.com/
- * Author     : WuRuibin & Sujianzhang
- *
- * The MIT License (MIT)
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
+    drv2605.h
+    A library for Grove-Haptic Motor 1.0
+
+    Copyright (c) 2015 seeed technology inc.
+    Website    : http://www.seeedstudio.com/
+    Author     : WuRuibin & Sujianzhang
+
+    The MIT License (MIT)
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+    THE SOFTWARE.
+*/
 
 #ifndef __DRV2605_H__
 #define __DRV2605_H__
@@ -77,24 +77,23 @@
 
 /*** Register Bits ***/
 /*
-#define Dev_Reset           (0x80)
-#define STANDBY             (0x40)
-#define ACTIVE              (0x00)
+    #define Dev_Reset           (0x80)
+    #define STANDBY             (0x40)
+    #define ACTIVE              (0x00)
 */
 
-class DRV2605
-{
-public: 
-	int init(bool bSoftI2C, bool bVerbose);
-	int drv2605Read(unsigned char ucRegAddress, char* pcValue);
-	int drv2605ReadInt(unsigned char ucRegAddress, int* piValue);
-	int drv2605Write(unsigned char ucRegAddress, char cValue);
-	int drv2605_AutoCal(void);
-	int drv2605_Play_Waveform(unsigned char ucEffect);
+class DRV2605 {
+  public:
+    int init(bool bSoftI2C, bool bVerbose);
+    int drv2605Read(unsigned char ucRegAddress, char* pcValue);
+    int drv2605ReadInt(unsigned char ucRegAddress, int* piValue);
+    int drv2605Write(unsigned char ucRegAddress, char cValue);
+    int drv2605_AutoCal(void);
+    int drv2605_Play_Waveform(unsigned char ucEffect);
 
-private:
-	bool bSoftI2C; /* Use software I2C on digital pins or Wire I2C on designated I2C pins */
-	bool bVerbose; /* Write diagnostic information to the serial port */
+  private:
+    bool bSoftI2C; /* Use software I2C on digital pins or Wire I2C on designated I2C pins */
+    bool bVerbose; /* Write diagnostic information to the serial port */
 };
 
 #endif /*  __DRV2605_H__ */
