@@ -1,4 +1,4 @@
-
+  [![Build Status](https://travis-ci.com/Seeed-Studio/Grove_Haptic_Motor.svg?branch=master)](https://travis-ci.com/Seeed-Studio/Grove_Haptic_Motor)
 Grove_Haptic_Motor
 ===
 
