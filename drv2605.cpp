@@ -117,6 +117,7 @@ int DRV2605::init(bool bSoftI2C = false, bool bVerbose = true) {
     if (drv2605Write(MODE_Reg, 0x00) != 0) {
         return -1;
     }
+    return 0;
 }
 
 /*  Try to read 1 byte from the DRV2605 register at 'regAddress'.
@@ -170,6 +171,8 @@ int DRV2605::drv2605Read(unsigned char ucRegAddress, char* pcValue) {
         return 0;
     }
     #endif /* DRV2605_SUPPORT_SOFT_I2C */
+
+    return -1;
 }
 
 /*  Perform a multi byte read (2 bytes) on the DRV2605.
@@ -227,6 +230,8 @@ int DRV2605::drv2605ReadInt(unsigned char ucRegAddress, int* piValue) {
         return 0;
     }
     #endif /* DRV2605_SUPPORT_SOFT_I2C */
+
+    return -1;
 }
 
 int DRV2605::drv2605Write(unsigned char ucRegAddress, char cValue) {
@@ -270,6 +275,8 @@ int DRV2605::drv2605Write(unsigned char ucRegAddress, char cValue) {
         return 0;
     }
     #endif /* DRV2605_SUPPORT_SOFT_I2C */
+
+    return -1;
 }
 
 int DRV2605::drv2605_AutoCal(void) {
